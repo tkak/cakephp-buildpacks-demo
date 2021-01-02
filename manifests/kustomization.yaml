@@ -1,0 +1,9 @@
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=changeme
+resources:
+  - mysql/deployment.yaml
+  - mysql/service.yaml
+  - mysql/pv-volume.yaml
+  - mysql/pv-claim.yaml
