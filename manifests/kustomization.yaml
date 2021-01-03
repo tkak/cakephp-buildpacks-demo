@@ -7,3 +7,5 @@ resources:
   - mysql/service.yaml
   - mysql/pv-volume.yaml
   - mysql/pv-claim.yaml
+  - frontend/deployment.yaml
+  - frontend/service.yaml
