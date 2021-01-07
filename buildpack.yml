@@ -1,4 +1,7 @@
 ---
 php:
   webserver: nginx
-  webdirectory: .
+  webdirectory: webroot
+
+composer:
+  install_options: ["--dev"]
