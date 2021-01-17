@@ -26,9 +26,15 @@ spec:
         env:
           - name: PORT
             value: "8080"
-          - name: BLOG_DB_HOST
+          - name: DB_HOST
             value: mysql
-          - name: BLOG_DB_PASSWORD
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_DATABASE
+            value: blog
+          - name: DB_USERNAME
+            value: blog
+          - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: mysql-pass

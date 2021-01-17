@@ -2,6 +2,10 @@ secretGenerator:
 - name: mysql-pass
   literals:
   - password=changeme
+configMapGenerator:
+- name: mysql-initdb
+  files:
+  - mysql/docker-entrypoint-initdb.d/initdb.sql
 resources:
   - mysql/deployment.yaml
   - mysql/service.yaml
