@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: cakephp-buildpacks-demo
+build:
+  artifacts:
+    - image: tkak/cakephp-buildpacks-demo
+      buildpacks:
+        builder: paketobuildpacks/builder:full
+  tagPolicy:
+    gitCommit: {}
+deploy:
+  kustomize:
+    paths:
+      - manifests

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog
+  labels:
+    app: blog
+spec:
+  selector:
+    matchLabels:
+      app: blog
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: blog
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: tkak/cakephp-buildpacks-demo
+        imagePullPolicy: Never
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+        env:
+          - name: PORT
+            value: "8080"
+          - name: DB_HOST
+            value: mysql
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_DATABASE
+            value: blog
+          - name: DB_USERNAME
+            value: blog
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-pass
+                key: password
